@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div>
+            <h1>StudentHub</h1>
+            <p>Smart Student Management Dashboard</p>
+        </div>
+        <span class="badge">JavaScript Project</span>
+    </header>
+
+    <main class="container">
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Students</p>
+                <h2 id="totalStudents">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Passed</p>
+                <h2 id="passedStudents">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Average Marks</p>
+                <h2 id="averageMarks">0</h2>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add New Student</h2>
+
+            <form id="studentForm">
+                <input type="text" id="studentName"
+                    placeholder="Enter student name" required>
+
+                <input type="email" id="studentEmail"
+                    placeholder="Enter email address" required>
+
+                <input type="number" id="studentMarks"
+                    placeholder="Enter marks (0-100)"
+                    min="0" max="100" required>
+
+                <button type="submit" class="add-btn">
+                    + Add Student
+                </button>
+            </form>
+            <p id="message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <h2>Student Records</h2>
+
+            <div class="toolbar">
+                <input type="search" id="searchInput"
+                    placeholder="Search by name or email...">
+
+                <select id="filterStatus">
+                    <option value="all">All Students</option>
+                    <option value="pass">Passed (50+)</option>
+                    <option value="fail">Failed (Below 50)</option>
+                </select>
+
+                <button id="loadApiBtn" class="api-btn" type="button">
+                    Load API Data
+                </button>
+            </div>
+
+            <p id="apiMessage" aria-live="polite"></p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Marks</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable"></tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage"></p>
+        </section>
+
+        <footer>
+            StudentHub | JavaScript DOM, Arrays & API Practice
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
